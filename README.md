@@ -1,3 +1,6 @@
+# docker-node-postgres
+
+### Basic express app
 
 - Create docker image  
 ```bash
@@ -92,4 +95,18 @@ docker exec -it postgres-docker psql -U postgres
 #            |          |          |            |            | postgres=CTc/postgres
 #  template1 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
 #            |          |          |            |            | postgres=CTc/postgres
+```
+
+- Run migrations
+```bash
+npm run migrate
+# > docker-node-postgres@1.0.0 migrate D:\Path\docker-node-postgres
+# > node scripts/migrate.js
+# 
+# Created users table!
+
+# Run psql command to check new table at postgres=#
+ \t
+# public | users        | table    | postgres
+# public | users_id_seq | sequence | postgres
 ```
