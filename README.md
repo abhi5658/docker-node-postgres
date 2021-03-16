@@ -124,3 +124,37 @@ docker rm -f CONTAINER_ID1 CONTAINER_ID2
 docker images # show docker images
 docker rmi node-server IMAGE_ID2
 ```
+
+- Docker compose will do everything for you...
+```bash
+# warning: this will create+run containers in attached mode (As soon as you exit terminal containers are shut down)
+docker-compose up
+
+# use detached mode
+docker-compose up -d
+# Creating network "docker-node-postgres_default" with the default driver
+# Creating docker-node-postgres_server_1 ... done
+# Creating docker-node-postgres_db_1     ... done
+```
+
+- DB migrate+seed for docker composed containers
+```bash
+# migrate
+docker exec -it docker-node-postgres_server_1 npm run migrate
+# > docker-node-postgres@1.0.0 migrate
+# > node scripts/migrate.js
+# 
+# Created users table!
+# ------------------------------------------------------
+# seed DB
+docker exec -it docker-node-postgres_server_1 npm run seed
+# > docker-node-postgres@1.0.0 seed
+# > node scripts/seed.js
+# 
+# Added dummy users!
+# ------------------------------------------------------
+# Try localhost:5000
+# Try localhost:5000/users -> 2 users
+# Try POST localhost:5000/users body {"name":"Abhishek"}
+# Try localhost:5000/users -> 3 users
+```
