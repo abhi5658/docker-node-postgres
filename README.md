@@ -145,13 +145,14 @@ docker exec -it docker-node-postgres_server_1 npm run migrate
 # > node scripts/migrate.js
 # 
 # Created users table!
-# ------------------------------------------------------
+
 # seed DB
 docker exec -it docker-node-postgres_server_1 npm run seed
 # > docker-node-postgres@1.0.0 seed
 # > node scripts/seed.js
 # 
 # Added dummy users!
+
 # ------------------------------------------------------
 # Try localhost:5000
 # Try localhost:5000/users -> 2 users
@@ -175,3 +176,5 @@ docker exec -it docker-node-postgres_server_1 npm run seed
 # DO docker-compose down + up
 # data is persisted + no need to migrate + seed everytime
 ```
+
+[YouTube Video link that I followed](https://youtu.be/Dm0CmZz-QyI)
