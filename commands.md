@@ -18,8 +18,10 @@ docker run --name node-server-app -p 5000:5000 -d node-server
 ```bash
 # build new image
 docker build --tag node-server .
+
 # run the image
 docker run --name node-server-app -p 5000:5000 -d node-server
+
 # call localhost:5000 multiple times
 ```
 
@@ -27,10 +29,13 @@ docker run --name node-server-app -p 5000:5000 -d node-server
 ```bash
 # build new image
 docker build --tag node-server .
+
 # run the image
 docker run --name node-server-app -p 5000:5000 -d node-server
+
 # check container file system
 docker exec -it node-server-app bash
+
 # run ls command inside this bash
 # call localhost:5000 multiple times
 ```
