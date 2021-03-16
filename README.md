@@ -110,3 +110,17 @@ npm run migrate
 # public | users        | table    | postgres
 # public | users_id_seq | sequence | postgres
 ```
+
+- Clear everyting up for next part
+```bash
+# remove all older running containers/images 
+docker ps # show running containers
+docker stop CONTAINER_ID1 CONTAINER_ID2
+docker rm CONTAINER_ID1 CONTAINER_ID2
+
+# OR force stop + remove conatiner
+docker rm -f CONTAINER_ID1 CONTAINER_ID2
+
+docker images # show docker images
+docker rmi node-server IMAGE_ID2
+```
