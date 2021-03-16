@@ -58,3 +58,11 @@ docker exec node-server-app npm list
 # npm notice Run `npm install -g npm@7.6.3` to update!
 # npm notice
 ```
+
+### Postgres 
+
+- Clone intial code setup from repo
+```bash
+git clone https://github.com/hidjou/classsed-docker-tutorial.git .
+# clones the content into current directory
+```
