@@ -66,3 +66,30 @@ docker exec node-server-app npm list
 git clone https://github.com/hidjou/classsed-docker-tutorial.git .
 # clones the content into current directory
 ```
+
+- Run postgres image (port = external:internal)
+```bash
+docker run --name postgres-docker -e POSTGRES_PASSWORD=12345678 -d -p 4321:5432 postgres
+```
+
+- Run psql with containerised postgres database
+```bash
+# if psql is installed on sytem
+psql -d postgres -h localhost -p 4321 -U postgres
+
+# OR we can use postgres container's psql
+docker exec -it postgres-docker psql -U postgres
+
+# postgres-#
+# now all psql commands can be executed here (data shown from container)
+
+# postgres-# \l
+#                                  List of databases
+#    Name    |  Owner   | Encoding |  Collate   |   Ctype    |   Access privileges
+# -----------+----------+----------+------------+------------+-----------------------
+#  postgres  | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+#  template0 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+#            |          |          |            |            | postgres=CTc/postgres
+#  template1 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+#            |          |          |            |            | postgres=CTc/postgres
+```
