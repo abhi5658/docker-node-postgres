@@ -158,3 +158,20 @@ docker exec -it docker-node-postgres_server_1 npm run seed
 # Try POST localhost:5000/users body {"name":"Abhishek"}
 # Try localhost:5000/users -> 3 users
 ```
+
+- With Database data saved in mounted volumes
+```bash
+docker-compose down
+docker-compose up -d --build
+
+# migrate
+docker exec -it docker-node-postgres_server_1 npm run migrate
+
+# seed DB
+docker exec -it docker-node-postgres_server_1 npm run seed
+
+# Try API routes
+
+# DO docker-compose down + up
+# data is persisted + no need to migrate + seed everytime
+```
